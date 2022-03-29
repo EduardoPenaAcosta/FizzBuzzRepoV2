@@ -25,4 +25,10 @@ public class FizzBuzzTest {
         assertEquals("FizzBuzz", num.obtainMultipleBy(15));
     }
 
+    @Test
+    public void when_is_multiple_by_3_or_contains_3_in_it(){
+        assertEquals("A number is fizz if is divisible by 3 or if it has a 3 in it",
+                    num.obtainMultipleBy(3));
+    }
+
 }

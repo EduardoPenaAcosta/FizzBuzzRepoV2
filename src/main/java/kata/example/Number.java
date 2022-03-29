@@ -12,12 +12,35 @@ public class Number {
 
     public String obtainMultipleBy(int number){
 
-        if(number % 3 == 0 && number % 5 == 0) return "FizzBuzz";
+        String numberUsado = Integer.toString(number);
+        String resultado = number_has_3_or_5_in_it(numberUsado);
 
-        if(number % 3 == 0) return "Fizz";
+        if (number <= 0){
+            resultado = "You can't type a 0 or negative number";
+            return resultado;
+        }
+        if (number % 3 == 0) return resultado = number_has_3_or_5_in_it(resultado);
 
-        if(number % 5 == 0) return "Buzz";
+        if( number % 5 == 0) return resultado = number_has_3_or_5_in_it(resultado);
 
-        return Integer.toString(number);
+        if(number % 3 == 0 && number % 5 == 0) return resultado = "FizzBuzz";
+
+        return resultado;
+    }
+
+    public String number_has_3_or_5_in_it(String number){
+        String messageReturn = "";
+
+        if(number.contains("3")){
+            messageReturn = "A number is fizz if is divisible by 3 or if it has a 3 in it";
+        }
+        if(number.contains("5")){
+            messageReturn = "A number is buzz if is divisible by 5 or if it has a 5 in it";
+        }
+        if(!number.contains("5") && !number.contains("3")){
+            messageReturn = number;
+        }
+
+        return messageReturn;
     }
 }
