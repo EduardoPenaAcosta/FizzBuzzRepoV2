@@ -8,41 +8,29 @@ public class Number {
         this.number = number;
     }
 
-    /*
-    * Se pone primero si es divisible entre ambos para que compruebe
-    * primero eso, si no devolverá los otros resultados.
-    */
-
     public String obtainMultipleBy(int number){
 
         String numberUsado = Integer.toString(number);
-        String resultado = number_has_3_or_5_in_it(numberUsado);
+        String resultado = number_has_3_or_5_in_it(numberUsado,numberUsado);
 
-        if (number <= 0){
-            resultado = "You can't type a 0 or negative number";
-            return resultado;
-        }
-        if (number % 3 == 0) return resultado = number_has_3_or_5_in_it(resultado);
+        if (number <= 0) return "You can't type a 0 or negative number";
 
-        if( number % 5 == 0) return resultado = number_has_3_or_5_in_it(resultado);
+        if (number % 3 == 0) return number_has_3_or_5_in_it(resultado, "3");
 
-        if(number % 3 == 0 && number % 5 == 0) return resultado = "FizzBuzz";
+        if( number % 5 == 0) return number_has_3_or_5_in_it(resultado,"5");
+
+        if(number % 3 == 0 && number % 5 == 0) return "FizzBuzz";
 
         return resultado;
     }
 
-    public String number_has_3_or_5_in_it(String number){
+    public String number_has_3_or_5_in_it(String number, String numerContain){
         String messageReturn = "";
 
-        if(number.contains("3")){
-            messageReturn = "A number is fizz if is divisible by 3 or if it has a 3 in it";
-        }
-        if(number.contains("5")){
-            messageReturn = "A number is buzz if is divisible by 5 or if it has a 5 in it";
-        }
-        if(!number.contains("5") && !number.contains("3")){
-            messageReturn = number;
-        }
+        if(number.contains(numerContain)) return "A number is fizz if is divisible by " + numerContain +
+                " or if it has a "+ numerContain +" in it";
+
+        if(!number.contains("5") && !number.contains("3")) return number;
 
         return messageReturn;
     }
