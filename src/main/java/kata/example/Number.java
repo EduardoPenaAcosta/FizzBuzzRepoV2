@@ -2,7 +2,10 @@ package kata.example;
 
 public class Number {
 
-    public Number() {
+    int number;
+
+    public Number(int number) {
+        this.number = number;
     }
 
     /*
